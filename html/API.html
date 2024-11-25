@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Document</title>
+</head>
+<style>
+    *{
+        background-color:rgb(195, 216, 201);
+    }
+</style>
+<body>
+    <script>
+        // This function using fatch API and connect to the public web service call "BIN Info Checker API" from https://rapidapi.com/usefulapis/api/bin-info-checker-api/
+        // It shows the bill informations and details
+        // I have to subscribed for more functions so that's why there is only one way output
+        
+        function getFashion(){
+          const url = 'https://asos2.p.rapidapi.com/products/v2/list?store=US&offset=0&categoryId=4209&limit=48&country=US&sort=freshness&currency=USD&sizeSchema=US&lang=en-US';
+          const options = {
+            method: 'GET',
+            headers: {
+                'X-RapidAPI-Key': '9649e540famsh06d42b3b5efe934p1f5028jsn07fbf1aee91a',
+                'X-RapidAPI-Host': 'asos2.p.rapidapi.com'
+              }
+          };
+        
+          try {
+              fetch(url, options)
+              .then((response) => response.json())
+              .then((data) => {
+                  console.log(data);
+                      for(i = 0 ; i < data.products.length; i++){
+                        document.getElementById("output").innerHTML +=
+                      `<div>
+                        Product Name: ${data.products[i].name}, Price: ${data.products[i].price.current.text}<br>
+                      </div>`;
+                      }
+                  }
+              )
+          } catch (error) {
+              console.error(error);
+        }}
+        </script>
+        <li><a href="#" onclick="getFashion()">Random Some Shoes</a></li>
+
+        <div id="output"></div>
+</body>
+</html>

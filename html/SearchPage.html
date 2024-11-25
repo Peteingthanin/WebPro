@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Search Page</title>
+  <link rel="stylesheet" href="/css_file/SearchPage.css" />
+</head>
+
+<body>
+  <header>
+    <a href="/html/HomePage.html" ><button>STYLISH</button ></a>
+    <nav>
+      <ul class="nav__links">
+        <li><a href="/html/SearchPage.html">Discover</a></li>
+        <li><a href="/html/OurTeam.html">Our Team</a></li>
+      </ul>
+    </nav>
+    <div class="nav__icons">
+      <a href="/html/HomePage.html"><button><ion-icon name="close-outline"></ion-icon></ion-icon></button></a>
+      <a href="/html/LoginPage.html"><button><ion-icon name="hammer-outline"></ion-icon></button></a>
+    </div>
+  </header>
+  <script>
+    function getConferenceResponses() {
+      let query = document.getElementById("txtSearch").value; // Get query from a textbox
+      console.log(query);
+      if (document.getElementById("search_choice").value == "productID") {
+        let rooturl =
+          "http://localhost:3030/product/idSearch/" + query
+        query; //Request URL
+        fetch(rooturl)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            document.getElementById("output").innerHTML = "<h1>Result</h1>";
+            for (let i = 0; i < data.data.length; i++) {
+              let description = data.data[i].pd_description;
+              let id = data.data[i].pd_id;
+              document.getElementById("output").innerHTML += `<li data-id="${id}">${description}</li>`;
+            }
+          })
+          .catch((err) => console.log(err));
+      }
+      else if (document.getElementById("search_choice").value == "name") {
+        let rooturl = "http://localhost:3030/product/nameSearch/" + query;
+
+        fetch(rooturl)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            document.getElementById("output").innerHTML = "<h1>Result</h1>";
+            for (let i = 0; i < data.data.length; i++) {
+              let description = data.data[i].pd_description;
+              let id = data.data[i].pd_id;
+              document.getElementById("output").innerHTML += `<li data-id="${id}">${description}</li>`;
+            }
+          })
+          .catch((err) => console.log(err));
+      }
+      else if (document.getElementById("search_choice").value == "color") {
+        let rooturl =
+          "http://localhost:3030/product/colorSearch/" + query
+        query; //Request URL
+        fetch(rooturl)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            document.getElementById("output").innerHTML = "<h1>Result</h1>";
+            for (let i = 0; i < data.data.length; i++) {
+              let description = data.data[i].pd_description;
+              let id = data.data[i].pd_id;
+              document.getElementById("output").innerHTML += `<li data-id="${id}">${description}</li>`;
+            }
+          })
+          .catch((err) => console.log(err));
+      }
+      else {
+        let rooturl =
+          "http://localhost:3030/product/allSearch/" + query
+        query; //Request URL
+        fetch(rooturl)
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+            document.getElementById("output").innerHTML = "<h1>Result</h1>";
+            for (let i = 0; i < data.data.length; i++) {
+              let description = data.data[i].pd_description;
+              let id = data.data[i].pd_id;
+              document.getElementById("output").innerHTML += `<li data-id="${id}">${description}</li>`;
+            }
+          })
+          .catch((err) => console.log(err));
+      }
+    }
+    function redirectToProduct(event) {
+      if (event.target.tagName === 'LI') {
+        let productId = event.target.getAttribute('data-id');
+        window.location.href = `/html/ProductID${productId}`;
+      }
+    }
+    function getBill(){
+  const url = 'https://bin-info-checker-api.p.rapidapi.com/info?bin=475055';
+  const options = {
+  method: 'GET',
+  headers: {
+      'X-RapidAPI-Key': '9649e540famsh06d42b3b5efe934p1f5028jsn07fbf1aee91a',
+      'X-RapidAPI-Host': 'bin-info-checker-api.p.rapidapi.com'
+  }
+};
+
+  try {
+      fetch(url, options)
+      .then((response) => response.json())
+      .then((data) => {
+          console.log(data);
+              document.getElementById("output").innerHTML +=
+              `<div>
+                  <br><br><br><br><br><br><br><br><br><br><br>
+                  <br><br><br><br><br><br><br><br><br><br><br>
+                  Bin No.: ${data.bin}<br>
+                  Card brand: ${data.brand}<br>
+                  Card Type: ${data.card_type}<br>
+                  Country: ${data.country}<br>
+                  Issuer: ${data.issuer}<br>
+                  Card level: ${data.level}
+              </div>`;
+          }
+      )
+  } catch (error) {
+      console.error(error);
+}}
+  </script>
+  <div class="search-bar">
+    <div class="dropdown">
+      <div id="drop-text" class="dropdown-text">
+      </div>
+      <select id="search_choice" name="search_choice">
+        <option selected>All</option>
+        <option value="productID">Product ID</option>
+        <option value="name">Name</option>
+        <option value="color">Color</option>
+      </select>
+    </div>
+    <div class="search-box">
+      <input type="text" id="txtSearch" required>
+      <button type="button" onclick="getConferenceResponses()" id="txtSearch">Search</button>
+      <button type="submit"></button>
+      <p id="idToLink" class="hidden"> </p><br>
+      <ul id="output" onclick="redirectToProduct(event)"></ul>
+    </div>
+  </div>
+
+  <script src="/JavaScipt/Search.js"></script>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <footer>
+    <p>&copy; 2024 Stylish Compaas. All rights reserved.</p>
+  </footer>
+</body>
+
+</html>

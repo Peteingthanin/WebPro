@@ -1,0 +1,17 @@
+{
+  "name": "web-project-final",
+  "version": "1.0.0",
+  "description": "Readme.txt\t\t\t\t\t\r 1. Run SQL script to create a database named stylish\r 2. Set up MySQL Server by creating a new user or you can edit our .env file based on your MySQL Workbench.\r This is the MySQL user setting\r \tUsername = VSCode\r \tPassword = 1234\r \tDatabase = stylish\r \tMachine = localhost",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "mysql2": "^3.9.7",
+    "nodemon": "^3.1.0"
+  }
+}

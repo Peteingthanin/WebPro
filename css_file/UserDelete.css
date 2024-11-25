@@ -1,0 +1,200 @@
+ /* @import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+li,
+a,
+button {
+  font-weight: 500;
+  font-size: 16px;
+  color: #edf0f1;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+}
+
+.nav__links {
+  list-style: none;
+}
+
+.nav__links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav__links li a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+  color: gray;
+}
+
+.nav__icons a button {
+  font-size: 20px;
+}
+
+button {
+  padding: 9px 10px;
+  background-color: transparent;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+button:hover {
+  color: gray;
+  border: white;
+}
+
+body {
+  background-color: black;
+}
+
+.side__menu {
+  position: fixed;
+  background-color: grey;
+  width: 20vw;
+  min-height: 100vh;
+  top: 80px;
+  left: 100px;
+}
+
+.side__menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side__menu li {
+  font-size: 20px;
+  padding: 10px 40px;
+  color: white;
+}
+
+.side__menu li:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+} */
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+li,
+a,
+button {
+  font-weight: 500;
+  font-size: 16px;
+  color: #edf0f1;
+  text-decoration: none;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 30px 10%;
+}
+
+.nav__links {
+  list-style: none;
+}
+
+.nav__links li {
+  display: inline-block;
+  padding: 0px 20px;
+}
+
+.nav__links li a {
+  transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+  color: gray;
+}
+
+.nav__icons a button {
+  font-size: 20px;
+}
+
+button {
+  padding: 9px 10px;
+  background-color: transparent;
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+button:hover {
+  color: gray;
+  border: white;
+}
+
+body {
+  background-color: black;
+}
+
+.side__menu {
+  position: fixed;
+  background-color: black;
+  min-height: 100vh;
+  top: 80px;
+  left: 100px;
+}
+
+.side__menu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.side__menu li {
+  font-size: 16px;
+  padding: 10px 40px;
+  color: white;
+}
+
+.side__menu ul .now__here {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.side__menu li:hover {
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.centered-inputs {
+  text-align: center;
+  margin-top: 10%; /* Adjust this margin as needed */
+}
+
+.centered-inputs input {
+  margin: 1%;
+}
+footer {
+  margin-top: 50%;
+  text-align: center;
+  color: white;
+}
